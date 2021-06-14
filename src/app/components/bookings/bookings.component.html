@@ -1,0 +1,42 @@
+<div class="list">
+  <div class="header">
+    <h2 class="header-left">
+      Reservaciones
+    </h2>
+
+    <div class="header-right">
+      <mat-form-field floatLabel="always" appearance="fill">
+        <mat-label>Buscar por id</mat-label>
+        <input matInput type="text" [(ngModel)]="filterId">
+        <button [disabled]="!filterId" matSuffix mat-icon-button aria-label="Clear" (click)="filterId=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field floatLabel="always" appearance="fill">
+        <mat-label>Buscar por precio</mat-label>
+        <input matInput type="text" [(ngModel)]="filterPrice">
+        <button [disabled]="!filterPrice" matSuffix mat-icon-button aria-label="Clear" (click)="filterPrice=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-grid-list cols="6" rowHeight="120">
+    <mat-grid-tile class="mat-h2">id</mat-grid-tile>
+    <mat-grid-tile class="mat-h2">Cliente</mat-grid-tile>
+    <mat-grid-tile class="mat-h2">Fecha de reservación</mat-grid-tile>
+    <mat-grid-tile class="mat-h2" colspan="2">Dirección</mat-grid-tile>
+    <mat-grid-tile class="mat-h2">Precio</mat-grid-tile>
+
+    <ng-container
+      *ngFor="let booking of bookings | searchFilter:'bookingId':filterId | searchFilter:'bookingPrice':filterPrice">
+      <mat-grid-tile>{{booking.bookingId}}</mat-grid-tile>
+      <mat-grid-tile>{{booking.tutenUserClient.firstName}} {{booking.tutenUserClient.lastName}}</mat-grid-tile>
+      <mat-grid-tile>{{booking.bookingTime}}</mat-grid-tile>
+      <mat-grid-tile colspan="2">{{booking.locationId.streetAddress}}</mat-grid-tile>
+      <mat-grid-tile>{{booking.bookingPrice}}</mat-grid-tile>
+    </ng-container>
+  </mat-grid-list>
+</div>

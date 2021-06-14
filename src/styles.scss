@@ -1,0 +1,54 @@
+html, body {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  &-item {
+    max-width: 50%;
+  }
+}
+
+.list {
+  padding: 18px;
+
+  mat-grid-tile {
+    background: rgba(black, 0.1);
+
+    .mat-grid-tile-content{
+      padding: 5px 10px;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &-left {
+    flex: 1;
+  }
+
+  &-right {
+    .mat-form-field + .mat-form-field {
+      margin-left: 8px;
+    }
+  }
+}
