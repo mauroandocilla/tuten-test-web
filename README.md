@@ -1,5 +1,7 @@
 # tuten-test-app
 
+Desarollado por: Mauro Andocilla
+
 ## Desarrollo de una aplicación Web
 
 Se requiere el desarrollo de una WebApp desarrollada usando Angular 6 o similar
